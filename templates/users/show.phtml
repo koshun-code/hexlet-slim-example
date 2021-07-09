@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Hello, <?= $id ?></h1>
-<h2><?=$nickname?></h2>
+<h1>Hello, <?= $user[0]['nickname'] ?></h1>
+<p>Your email address is <?=$user[0]['email']?></p>
+<p><a href="/users">Users</a></p>
 </body>
 </html>

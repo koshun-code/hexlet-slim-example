@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of users</title>
+</head>
+<body>
+<?php foreach($flash as $messages):?>
+    <?php foreach ($messages as $message):?>
+      <p style="padding:10px; background-color:#00b25c; text-align:center; color:#bec1c2"><?=$message;?></p>
+    <?php endforeach;?>
+<?php endforeach;?>
+    <h1>List of users</h1>
+    <table>
+    <?php foreach ($users as $user):?>
+        <tr>
+        <?php if (!empty($user)):?>
+            <td><p> User NickName: <a href="/users/<?=$user['id']?>"><?=$user['nickname']?></a> |</p></td>
+            <td><p> Email: <?=$user['email']?></p></td>
+            <td>
+            <form action="/users/<?= $user['id'] ?>" method="post">
+                <input type="hidden" name="_METHOD" value="DELETE">
+                <input type="submit" value="Remove">
+            </form>
+
+            </td>
+            <?php else:?>
+            <td></td>
+            <?php endif;?>
+        </tr>
+    <?php endforeach;?>
+    <tr>
+        <td><a href="/users/new" style="padding 10px">Add new user</a></td>
+    </tr>
+    </table>
+    <form action="/users" method = "get">
+        <input type="search" name="term" value = "<?=htmlspecialchars($term)?>">
+        <input type="submit" value="Search">
+    </form>
+    <p><a href="/">Back to ther front page</a></p>
+</body>
+</html>
