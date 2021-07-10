@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form to create new user</title>
+</head>
+<body>
+    <form action="/users/<?=$user['id']?>" method = "post">
+    <input type="hidden" name="_METHOD" value="PATCH">
+        <div>
+            <label>
+                Nickname
+            <input type="text" name="user[nickname]" value="<?=$user['nickname'] ?? ''?>">
+            </label>
+            <?php if (isset($errors['nickname'])):?>
+            <p> <?=$errors['nickname'];?> </p>
+            <?php endif;?>
+        </div>
+        <div>
+            <label>
+                email
+            <input type="text" name="user[email]" value="<?=$user['email'] ?? ''?>">
+            </label>
+            <?php if (isset($errors['email'])): ?>
+            <p><?=$errors['email'];?></p>
+            <?php endif;?>
+        </div>
+        <input type="submit" value="Edit user">
+    </form>
+    <p><a href="/users">All users</a></p>
+</body>
+</html>

@@ -20,11 +20,13 @@
             <td><p> User NickName: <a href="/users/<?=$user['id']?>"><?=$user['nickname']?></a> |</p></td>
             <td><p> Email: <?=$user['email']?></p></td>
             <td>
+                <a href="/users/<?=$user['id']?>/edit">Edit</a>
+            </td>
+            <td>
             <form action="/users/<?= $user['id'] ?>" method="post">
                 <input type="hidden" name="_METHOD" value="DELETE">
                 <input type="submit" value="Remove">
             </form>
-
             </td>
             <?php else:?>
             <td></td>

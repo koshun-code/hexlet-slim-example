@@ -1,1 +1,2 @@
-null
+{"nickname":"koshun","email":"koshun@koshun.com","id":"60e85671123e95"}
+{"nickname":"this_is_a_user","email":"oneuser@mail.ru","id":"60e85671123e94"}

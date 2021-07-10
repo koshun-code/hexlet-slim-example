@@ -7,8 +7,32 @@
     <title>My first page</title>
 </head>
 <body>
+<?php if (!isset($_SESSION['user'])):?>
+<form action="/session" method="post">
+    <label>Name</label>
+    <p>
+        <input type="text" name="user[name]">
+    </p>
+    <label>Passowrd</label>
+    <p>
+        <input type="password" name="user[password]">
+    </p>
+    <p>
+        <input type="submit" value="Sign In">
+    </p>
+</form>
+<?php else:?>
+<form action="/session" method="post">
+  <input type="hidden" name="_METHOD" value="DELETE">
+    <p>
+        <?=$_SESSION['user']['name'];?>
+    </p>
+  <input type="submit" value="Sign Out">
+</form>
+
     <h1>This is my first page</h1>
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel quidem excepturi, dolores repellat perspiciatis dolore ex ratione molestiae totam, itaque cum officiis natus optio, obcaecati cupiditate culpa expedita est facilis.</p>
     <p><a href="/users">List of users</a></p>
+<?php endif;?>
 </body>
 </html>
